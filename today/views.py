@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from django.shortcuts import render
 
+import os
 import requests
 
 def index(request):
@@ -10,12 +11,9 @@ def show(request):
 
     url = 'https://p-ken.jp/p-playlanddai1heiwa/bonus'
 
-    proxies = {
-        "http":"proxy.server:3128",
-        "https":"proxy.server:3128"
-    }
+    os.environ['NO_PROXY'] = 'localhost,127.0.0.1,localaddress,.localdomain.com,/var/run/docker.sock,p-ken.jp'
 
-    r = requests.get(url, proxies=proxies)
+    r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
 
     ul_tag = soup.find("ul", id="collapse_0")
