@@ -10,7 +10,12 @@ def show(request):
 
     url = 'https://p-ken.jp/p-playlanddai1heiwa/bonus'
 
-    r = requests.get(url)
+    proxies = {
+        "http":"proxy.server:3128",
+        "https":"proxy.server:3128"
+    }
+
+    r = requests.get(url, proxies=proxies)
     soup = BeautifulSoup(r.text, 'html.parser')
 
     ul_tag = soup.find("ul", id="collapse_0")
