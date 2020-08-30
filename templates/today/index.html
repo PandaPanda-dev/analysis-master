@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>当日データ</title>
+</head>
+<body>
+
+    店舗を選択してください。
+    <br>
+    <form action="{% url 'summary' %}">
+        <select name="hall">
+            <option value=""></option>
+            <option>プレイランド第一平和</option>
+        </select>
+        <br>
+        <button type="submit">データ取得開始</button>
+    </form>
+
+</body>
+</html>
