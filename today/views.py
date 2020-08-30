@@ -11,7 +11,7 @@ def show(request):
 
     url = 'https://p-ken.jp/p-playlanddai1heiwa/bonus'
 
-    os.environ['NO_PROXY'] = 'localhost,127.0.0.1,localaddress,.localdomain.com,/var/run/docker.sock,p-ken.jp'
+    os.environ['no_proxy'] = 'localhost,127.0.0.1,localaddress,.localdomain.com,/var/run/docker.sock,p-ken.jp'
 
     r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
